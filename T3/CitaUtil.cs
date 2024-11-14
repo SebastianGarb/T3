@@ -9,13 +9,12 @@ namespace T3
 {
     internal class CitaUtil
     {
-        private static int contadorCitas = 0;
+        
         public static void CrearCita(Cita[] citas)
         {
             string seguir;
             
-            if (contadorCitas < citas.Length)
-            {
+            
 
                 Console.Write("Ingrese el número de la cita: ");
                 int numero = int.Parse(Console.ReadLine());
@@ -44,7 +43,8 @@ namespace T3
                 contadorCitas++;
 
                 Console.WriteLine("Cita creada exitosamente.");
-            }
+            
+           
         }
 
         public static void ListarCitas(Cita[] citas)
