@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,10 +9,14 @@ namespace T3
 {
     internal class CitaUtil
     {
-        public static Cita CrearCita(Cita[] citas)
+        private static int contadorCitas = 0;
+        public static void CrearCita(Cita[] citas)
         {
             string seguir;
             
+            if (contadorCitas < citas.Length)
+            {
+
                 Console.Write("Ingrese el número de la cita: ");
                 int numero = int.Parse(Console.ReadLine());
 
@@ -32,8 +37,14 @@ namespace T3
                 Console.Write("Ingrese el precio de la cita: ");
                 double precio = double.Parse(Console.ReadLine());
 
-                
-                return new Cita(numero, estudiante, enfermedad, precio);
+                Cita nuevaCita = new Cita(numero, estudiante, enfermedad, precio);
+
+                citas[contadorCitas] = nuevaCita;
+
+                contadorCitas++;
+
+                Console.WriteLine("Cita creada exitosamente.");
+            }
         }
 
         public static void ListarCitas(Cita[] citas)
@@ -45,6 +56,19 @@ namespace T3
                 sumaTotal += cita.Precio;
             }
             Console.WriteLine($"\nSuma total de los precios: {sumaTotal:C}");
+
+        }
+
+        public static void ModificarUniversidad(Cita[] citas, string textoAntiguo, string textoNuevo)
+        {
+            for (int i = 0; i < contadorCitas; i++)
+            {
+                if (citas[i].Estudiante.Universidad.Contains(textoAntiguo))
+                {
+                    citas[i].Estudiante.Universidad = citas[i].Estudiante.Universidad.Replace(textoAntiguo, textoNuevo);
+                }
+            }
+            Console.WriteLine("Modificación masiva completada.");
         }
     }
 }

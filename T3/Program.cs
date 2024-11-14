@@ -28,6 +28,11 @@ do
             CitaUtil.ListarCitas(citas);
             break;
         case 3:
+            Console.Write("Ingrese el texto a buscar: ");
+            string textoAntiguo = Console.ReadLine();
+            Console.Write("Ingrese el nuevo texto: ");
+            string textoNuevo = Console.ReadLine();
+            CitaUtil.ModificarUniversidad(citas, textoAntiguo, textoNuevo);
             break;
         case 4:
             Environment.Exit(0);
