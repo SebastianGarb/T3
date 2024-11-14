@@ -1,13 +1,12 @@
 ﻿using T3;
 
 byte opcion1;
-Estudiante e = new Estudiante();
-Cita cita = new Cita();
+List<Cita> citas = new List<Cita>();
 Console.WriteLine("Bienvenido al registro academico");
 Console.WriteLine(" * Que desea hacer: ");
 Console.WriteLine("  1.  Crear");
 Console.WriteLine("  2.  Lista");
-Console.WriteLine("  3.  Modificar");
+Console.WriteLine("  3.  Modificar Universidades");
 Console.WriteLine("  4.  Fin");
 Console.WriteLine("---------------------------------");
 
@@ -20,7 +19,7 @@ while (!byte.TryParse(Console.ReadLine(), out opcion1) || opcion1 > 4)
 switch (opcion1)
 {
     case 1:
-       
+        CitaUtil.CrearCita(citas);
         break;
     case 2:
         break;
